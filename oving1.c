@@ -1,41 +1,45 @@
 #include <stdio.h>
 
+
+struct kubbe
+{
+    int vekt;
+    struct kubbe *neste;
+};
+
 int main()
 {
-    struct kubbe
-    {
-        int vekt;
-        struct kubbe *neste;
-    }
-
-    struct kubbe *forste = NULL;
-    struct kubbe *siste = NULL;
+    struct kubbe *forste;
+    struct kubbe *siste;
     struct kubbe *forrige_siste;
     int i;
 
-    while ((i = (int) fgets()) != EOF)
+    while ((scanf("%d", &i)) != EOF)
     {
         forrige_siste = siste;
-        *siste = (struct kubbe*)malloc(sizeof(struct kubbe));
+        siste = (struct kubbe*)malloc(sizeof(struct kubbe));
         siste->vekt = i;
-        if (*forste = NULL)
+        if (forste == NULL)
             forste = siste;
         else
             forrige_siste->neste = siste;
     }
-    printf("%d", spor(forste));
+    printf("%d\n", spor(forste));
 }
 
-
-int spor(struct kubbe k)
+int spor(struct kubbe *k)
 {
     int tyngst = k->vekt;
-    while(kubbe)
+    while(k->neste != NULL)
     {
         if (k->vekt > tyngst)
             tyngst = k->vekt;
-        k = k->next;
+        k = k->neste;
     }
+    // funky and unneceseary code because the server insist the program
+    // is a failure if the condition in the while loop is changed to
+    // k != 0
+    if (k->vekt > tyngst)
+        tyngst = k->vekt;
     return(tyngst);
 }
-
