@@ -8,8 +8,8 @@ class Kubbe:
         self.neste = None
 
 def spor(kubbe):
-    tyngst = 0
-    while (kubbe.neste != None)
+    tyngst = kubbe.vekt
+    while (kubbe):
         if kubbe.vekt > tyngst:
             tyngst = kubbe.vekt
         kubbe = kubbe.neste
