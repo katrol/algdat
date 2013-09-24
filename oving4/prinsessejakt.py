@@ -18,22 +18,20 @@ def subgraftetthet(nabomatrise, startnode):
         if (goback):
             visited[stack.pop()] = 'd'
 
-    noder = []
+    noder = 0
     kanter = 0
-    for i in xrange(len(visited) - 1):
+    for i in xrange(n):
         if (visited[i] == 'u'):
-            noder.append(i)
-        
-    for node in noder:
-        for i in xrange(n):
-            if (nabomatrise[node][i] and (i in noder)):
-                kanter += 1
-    
+            noder += 1
+            for j in xrange(n):
+                if nabomatrise[i][j] and visited[j] == 'u':
+                    kanter += 1
 
-    if len(noder) == 0:
+
+    if noder == 0:
         return 0.0
     else:
-        return float(kanter) / float((len(noder))**2)
+        return float(kanter) / float(noder**2)
 
 
 def main():
