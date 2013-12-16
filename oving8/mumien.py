@@ -22,6 +22,8 @@ def beste_sti(nm, sans):
                     neste = j
 
     i = n - 1
+    if results[i] == 0.0:
+        return "0"
     path = [i]
     while (i != 0):
         i = parents[i]
